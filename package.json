@@ -14,6 +14,8 @@
     "css-loader": "^6.8.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "lottie-web": "^5.12.2",
+    "lottie-web-webpack-loader": "^0.0.6",
     "postcss": "^8.4.24",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",

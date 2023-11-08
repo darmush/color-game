@@ -1,0 +1,50 @@
+{
+    "heartsCount": 3,
+    "levelProgression": [
+        {
+            "elementsCount": 4,
+            "colorDifference": 17,
+            "time": 5
+        },
+        {
+            "elementsCount": 9,
+            "colorDifference": 17,
+            "time": 5
+        },
+        {
+            "elementsCount": 16,
+            "colorDifference": 17,
+            "time": 5
+        },
+        {
+            "elementsCount": 16,
+            "colorDifference": 13,
+            "time": 4
+        },
+        {
+            "elementsCount": 25,
+            "colorDifference": 13,
+            "time": 4
+        },
+        {
+            "elementsCount": 25,
+            "colorDifference": 10,
+            "time": 4
+        },
+        {
+            "elementsCount": 25,
+            "colorDifference": 10,
+            "time": 3
+        },
+        {
+            "elementsCount": 36,
+            "colorDifference": 8,
+            "time": 3
+        },
+        {
+            "elementsCount": 36,
+            "colorDifference": 5,
+            "time": 3
+        }
+    ]
+}
