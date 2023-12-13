@@ -27,6 +27,10 @@ const scoreScreen = document.querySelector('.score-screen')
 
 let activeScreen = document.querySelector('.active-screen')
 
+window.onload = function() {
+    app.removeAttribute('style')
+}
+
 app.addEventListener('click', element => {
     switch (element.target) {
         case startBtn:
