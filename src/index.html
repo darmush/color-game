@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Color Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-bg dark:bg-black text-xxs sm:text-xs text-black dark:text-white font-montserrat select-none">
+    <div class="app min-h-screen max-w-[445px] flex justify-center items-center m-auto py-14 sm:py-4" style="display: none;">
+
+      <div class="main-screen w-[300px] sm:w-[445px] flex flex-col gap-y-2 sm:gap-y-3 m-x-auto active-screen">
+        <button class="start-btn h-32 sm:h-44 text-base sm:text-xl font-bold uppercase flex w-full min-h-[6rem] text-white dark:text-black bg-black dark:bg-bg items-center justify-center hover:bg-accent-hover dark:hover:bg-accent-hover transition-colors">
+            start
+        </button>
+        <div class="h-20 flex gap-x-2">
+            <button class="rules-btn flex w-full sm:min-w-[7.5rem] sm:min-h-[6rem] text-white dark:text-black bg-accent items-center justify-center hover:bg-accent-hover dark:hover:bg-accent-hover transition-colors">
+              <img src="./assets/icons/rules-icon.svg" alt="rules icon" class="rules-icon max-sm:h-10">
+            </button>
+            <button class="score-btn flex w-full sm:min-w-[7.5rem] sm:min-h-[6rem] text-white bg-accent items-center justify-center hover:bg-accent-hover dark:hover:bg-accent-hover transition-colors">
+              <img src="./assets/icons/score-icon.svg" alt="score icon" class="score-icon max-sm:h-10">
+            </button>
+            <button class="theme-btn flex w-full sm:min-w-[7.5rem] sm:min-h-[6rem] text-white dark:text-black bg-accent items-center justify-center hover:bg-accent-hover dark:hover:bg-accent-hover transition-colors">
+              <img src="./assets/icons/theme-icon.svg" alt="rules icon" class="theme-icon max-sm:h-10">
+            </button>
+        </div>
+      </div>
+
+      <div class="rules-screen w-full h-full flex justify-center items-center m-auto absolute hidden">
+        <img src="./assets/icons/close-icon.svg" alt="" class="rules-close-btn w-[35px] sm:w-[50px] absolute top-4 sm:top-16 right-6 cursor-pointer dark:invert">
+        <div class="w-[300px] sm:w-[445px] h-[445px] flex flex-col justify-center gap-8 bg-bg dark:bg-black dark:text-white">
+          <h2 class="text-base sm:text-xl font-bold uppercase text-center">rules</h2>
+          <p>Choose elements that differ in color from the rest in a limited time. &#127919;&#9201;</p>
+          <p>You have 3 lives, losing which the game will end. &#128148;&#128148;&#128148;&#128128;</p>
+        </div>
+      </div>
+
+      <div class="score-screen w-full h-full flex justify-center items-center m-auto absolute hidden">
+        <img src="./assets/icons/close-icon.svg" alt="" class="score-close-btn w-[35px] sm:w-[50px] absolute top-4 sm:top-16 right-6 cursor-pointer dark:invert">
+        <div class="w-[300px] sm:w-[445px] h-[445px] flex flex-col justify-center gap-8 bg-bg dark:bg-black dark:text-white">
+          <h2 class="text-base sm:text-xl font-bold uppercase text-center">scores</h2>
+          <div class="leading-none">
+            <p class="flex justify-between font-bold">best score: <span class="best-score">0</span></p>
+            <p class="flex justify-between">previous best score: <span class="previous-best-score">0</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-screen w-[300px] sm:w-[445px] flex flex-col hidden">
+        <img src="./assets/icons/pause-icon.svg" alt="" class="pause-btn w-[35px] sm:w-[50px] absolute z-[11] top-4 sm:top-16 right-6 cursor-pointer dark:invert">
+        <img src="./assets/icons/close-icon.svg" alt="" class="close-pause-btn w-[35px] sm:w-[50px] absolute z-[11] top-4 sm:top-16 right-6 cursor-pointer dark:invert hidden">
+        <div class="score-panel flex justify-between text-xs sm:text-base leading-none font-bold">
+            <div class="">score:</div>
+            <div class="score-item"></div>
+        </div>
+        <div class="h-1 bg-black dark:bg-white mt-1 sm:mt-2 mb-1 sm:mb-3"></div>
+        <div class="status-panel flex justify-between items-center mb-8 text-accent">
+            <div class="hearts-panel w-[33%] flex gap-x-1 sm:gap-x-4 max-h-6 sm:max-h-[30px]">
+              <img src="./assets/icons/heart-icon.svg" alt="heart icon" class="heart-icon">
+              <img src="./assets/icons/heart-icon.svg" alt="heart icon" class="heart-icon">
+              <img src="./assets/icons/heart-icon.svg" alt="heart icon" class="heart-icon">
+            </div>
+            <div  class="w-[33%] flex items-center justify-center">
+              <div id="timer" class="timer w-full h-full leading-none font-bold text-center text-xs sm:text-sm"></div>
+            </div>
+            <div class="w-[33%] leading-none font-bold text-right text-xs sm:text-sm">&#9733; <span class="best-score-item"></span></div>
+        </div>
+        <div class="">
+          <div class="pause-screen w-[300px] sm:w-[445px] absolute z-10 gap-8 hidden">
+            <h2 class="text-base sm:text-xl font-bold uppercase text-center pt-16">pause</h2>
+          </div>
+          <div class="field h-[300px] sm:h-[445px] grid grid-flow-dense transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <div class="game-over-screen w-full h-full flex justify-center items-center m-auto absolute top-0 hidden">
+        <img src="./assets/icons/close-icon.svg" alt="" class="game-over-close-btn w-[35px] sm:w-[50px] absolute top-4 sm:top-16 right-6 cursor-pointer dark:invert">
+        <div class="w-[300px] sm:w-[445px] h-[445px] flex flex-col justify-center gap-8 bg-bg dark:bg-black dark:text-white">
+          <h2 class="text-base sm:text-xl font-bold uppercase text-center">game over</h2>
+          <div class="text-xs sm:text-sm leading-none">
+            <p class="record-text text-center mb-8 hidden">&#127881;hooray!&#127881;<br>this is a new record</p>
+            <p class="flex justify-between font-bold">score: <span class="game-over-score">0</span></p>
+            <p class="flex justify-between game-over-best-score-text">best score: <span class="game-over-best-score">0</span></p>
+            <p class="flex justify-between hidden game-over-last-best-score-text">last best score: <span class="game-over-last-best-score">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
